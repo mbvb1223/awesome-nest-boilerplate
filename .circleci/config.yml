@@ -9,7 +9,7 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
+            - run: yarn install
   deploy:
     executor:
       name: node/default
