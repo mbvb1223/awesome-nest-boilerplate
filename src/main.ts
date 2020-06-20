@@ -9,6 +9,7 @@ import * as compression from 'compression';
 import * as RateLimit from 'express-rate-limit';
 import * as helmet from 'helmet';
 import * as morgan from 'morgan';
+import { join } from 'path';
 import {
     initializeTransactionalContext,
     patchTypeORMRepositoryWithBaseRepository,
@@ -77,10 +78,15 @@ async function bootstrap() {
         setupSwagger(app);
     }
 
+    app.useStaticAssets(join(__dirname, 'public'));
+    app.setBaseViewsDir(join(__dirname, 'modules'));
+    app.setViewEngine('hbs');
+
     const port = configService.getNumber('PORT');
     await app.listen(port);
 
+    // eslint-disable-next-line no-restricted-syntax
     console.info(`server running on port ${port}`);
 }
 
-bootstrap();
+void bootstrap();
