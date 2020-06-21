@@ -80,14 +80,14 @@ async function bootstrap() {
     }
 
     /*----------------------------------------------------------------------------------------------------------------*/
-    app.useStaticAssets(join(__dirname, '..', 'public'));
+    app.useStaticAssets(join(__dirname, 'public'));
     app.setBaseViewsDir(join(__dirname, 'modules'));
     app.setViewEngine('hbs');
     app.set('view options', {
-        layout: '../../views/layouts/main',
+        layout: '../views/layouts/main',
     });
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
-    hbs.registerPartials(join(__dirname, '..', 'views/partials'));
+    hbs.registerPartials(join(__dirname, 'views/partials'));
     /*----------------------------------------------------------------------------------------------------------------*/
 
     const port = configService.getNumber('PORT');
