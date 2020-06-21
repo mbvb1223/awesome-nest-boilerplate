@@ -1,0 +1,31 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build-and-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn install
+            - run: yarn test:cov --passWithNoTests
+  deploy:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run:
+          name: Deploy to Heroku
+          command: |
+            curl https://cli-assets.heroku.com/install.sh | sh
+            git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+#              git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+#            fi
+workflows:
+  build-deploy:
+    jobs:
+      - build-and-test
+      - deploy
