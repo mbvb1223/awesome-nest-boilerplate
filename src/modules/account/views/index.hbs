@@ -31,10 +31,13 @@
                             <th>
                                 Email
                             </th>
+                            <th>
+                                Actions
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
-                        {{#each data}}
+                        {{#each accounts}}
                             <tr>
                                 <td>
                                     {{ this.id }}
@@ -47,6 +50,9 @@
                                 </td>
                                 <td>
                                     {{ this.email }}
+                                </td>
+                                <td>
+                                    <a href="/accounts/{{ this.id }}/edit">Edit</a>
                                 </td>
                             </tr>
                         {{/each}}

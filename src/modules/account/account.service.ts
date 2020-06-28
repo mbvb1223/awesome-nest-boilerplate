@@ -19,4 +19,8 @@ export class AccountService {
     async find(): Promise<AccountEntity[]> {
         return this.accountRepository.find();
     }
+
+    async findOne(id: string): Promise<AccountEntity> {
+        return this.accountRepository.findOne(id);
+    }
 }
