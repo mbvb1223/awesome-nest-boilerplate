@@ -8,7 +8,16 @@ import { CreateAccountDto } from './dto/CreateAccountDto';
 export class AccountController {
     constructor(private readonly _accountService: AccountService) {}
 
-    @Get()
+    @Get('')
+    @Render('account/views/index')
+    async index(): Promise<any> {
+        const accounts = await this._accountService.find();
+        // console.log(accounts.toDtos());
+
+        return { data: accounts };
+    }
+
+    @Get('create')
     @Render('account/views/create')
     create(): any {
         return {};

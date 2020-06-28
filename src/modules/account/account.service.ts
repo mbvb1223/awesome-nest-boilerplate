@@ -15,4 +15,8 @@ export class AccountService {
 
         return this.accountRepository.save(user);
     }
+
+    async find(): Promise<AccountEntity[]> {
+        return this.accountRepository.find();
+    }
 }
