@@ -14,9 +14,9 @@ export class SchedulerService {
     @Cron(CronExpression.EVERY_10_MINUTES)
     createAccount() {
         void this._accountService.createAccount({
-            firstName: 'khien ' + this._generatorService.uuid(),
-            lastName: 'pham ' + this._generatorService.uuid(),
-            email: 'pckhien ' + this._generatorService.uuid() + ' @gmail.com',
+            firstName: 'Khien ' + this._generatorService.uuid(),
+            lastName: 'Pham ' + this._generatorService.uuid(),
+            email: 'pckhien_' + this._generatorService.uuid() + '@gmail.com',
         });
     }
 }
