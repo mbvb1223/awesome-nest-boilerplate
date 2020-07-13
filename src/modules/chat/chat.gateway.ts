@@ -28,17 +28,17 @@ export class ChatGateway
         this.server.emit('msgToClient', chatData);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     afterInit(server: Server) {
         this._logger.log('Init');
-        this._logger.log(server);
     }
 
     handleDisconnect(client: Socket) {
         this._logger.log(`Client disconnected: ${client.id}`);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     handleConnection(client: Socket, ...args: any[]) {
         this._logger.log(`Client connected: ${client.id}`);
-        this._logger.log(args);
     }
 }
