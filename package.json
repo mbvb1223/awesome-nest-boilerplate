@@ -40,6 +40,7 @@
         "@nestjs/schedule": "^0.4.0",
         "@nestjs/swagger": "^4.5.7",
         "@nestjs/typeorm": "^7.0.0",
+        "@nestjs/websockets": "^7.3.2",
         "aws-sdk": "~2.683.0",
         "bcrypt": "~3.0.6",
         "class-transformer": "^0.2.3",

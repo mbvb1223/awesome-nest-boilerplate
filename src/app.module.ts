@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { contextMiddleware } from './middlewares';
 import { AccountModule } from './modules/account/account.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { ChatModule } from './modules/chat/chat.module';
 import { MathModule } from './modules/math/math.module';
 import { UserModule } from './modules/user/user.module';
 import { SchedulerService } from './schedule/scheduler.service';
@@ -16,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
 @Module({
     imports: [
         AccountModule,
+        ChatModule,
         AuthModule,
         UserModule,
         MathModule,

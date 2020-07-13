@@ -7,16 +7,16 @@ import { GeneratorService } from '../shared/services/generator.service';
 @Injectable()
 export class SchedulerService {
     constructor(
-        private readonly _accountService: AccountService,
-        private readonly _generatorService: GeneratorService,
+        public readonly accountService: AccountService,
+        public readonly generatorService: GeneratorService,
     ) {}
 
     @Cron(CronExpression.EVERY_10_MINUTES)
     createAccount() {
-        void this._accountService.createAccount({
-            firstName: 'Khien ' + this._generatorService.uuid(),
-            lastName: 'Pham ' + this._generatorService.uuid(),
-            email: 'pckhien_' + this._generatorService.uuid() + '@gmail.com',
+        void this.accountService.createAccount({
+            firstName: 'Khien ' + this.generatorService.uuid(),
+            lastName: 'Pham ' + this.generatorService.uuid(),
+            email: 'pckhien_' + this.generatorService.uuid() + '@gmail.com',
         });
     }
 }
