@@ -90,6 +90,9 @@
         const htmlElement = generateMessage(chat.name, chat.message);
 
         document.getElementById("wrap-content").innerHTML += htmlElement;
+        $('#wrap-content').animate({
+            scrollTop: $('#wrap-content').get(0).scrollHeight
+        }, 1500);
     });
     socket.on('exception', function(data) {
         console.log('event', data);

@@ -11,7 +11,7 @@ export class SchedulerService {
         public readonly generatorService: GeneratorService,
     ) {}
 
-    @Cron(CronExpression.EVERY_10_MINUTES)
+    @Cron(CronExpression.EVERY_MINUTE)
     createAccount() {
         void this.accountService.createAccount({
             firstName: 'Khien ' + this.generatorService.uuid(),
