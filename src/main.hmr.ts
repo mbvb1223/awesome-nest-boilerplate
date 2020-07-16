@@ -15,7 +15,7 @@ import { setupSwagger } from './viveo-swagger';
 
 declare const module: any;
 
-async function bootstrap() {
+async function bootstrap(): Promise<void> {
     const app = await NestFactory.create<NestExpressApplication>(AppModule, {
         cors: true,
         bodyParser: true,
@@ -25,7 +25,7 @@ async function bootstrap() {
     app.use(
         RateLimit({
             windowMs: 15 * 60 * 1000, // 15 minutes
-            max: 100, // limit each IP to 100 requests per windowMs
+            max: 100000, // limit each IP to 100 requests per windowMs
         }),
     );
     app.use(compression());
@@ -76,4 +76,4 @@ async function bootstrap() {
     }
 }
 
-bootstrap();
+void bootstrap();

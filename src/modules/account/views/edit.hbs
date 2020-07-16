@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/accounts/{{ account.id }}/update" method="post">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="card ">
+            <div class="card-header card-header-rose card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">contacts</i>
+                </div>
+                <h4 class="card-title">Horizontal Form</h4>
+            </div>
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                            <label for="exampleEmail" class="bmd-label-floating">First name</label>
+                            <input type="text" class="form-control" name="firstName" value="{{ account.firstName }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                            <label for="exampleEmail" class="bmd-label-floating">Last name</label>
+                            <input type="text" class="form-control" name="lastName" value="{{ account.lastName }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-floating">Email</label>
+                            <input type="text" class="form-control" name="email" value="{{ account.email }}">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer ">
+                <div class="row">
+                    <div class="col-md-9">
+                        <button type="submit" class="btn btn-fill btn-rose">Sign in</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

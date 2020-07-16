@@ -1,3 +1,67 @@
-<main id="post">
-    {{ message }}
-</main>
+<div class="row">
+    <div class="col-md-12">
+        <h1>Index</h1>
+
+        <ul class="people_list">
+
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+                <div class="card-icon">
+                    <i class="material-icons">assignment</i>
+                </div>
+                <h4 class="card-title ">Account table listing</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                First name
+                            </th>
+                            <th>
+                                Last name
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each accounts}}
+                            <tr>
+                                <td>
+                                    {{ this.id }}
+                                </td>
+                                <td>
+                                    {{ this.firstName }}
+                                </td>
+                                <td>
+                                    {{ this.lastName }}
+                                </td>
+                                <td>
+                                    {{ this.email }}
+                                </td>
+                                <td>
+                                    <a href="/accounts/{{ this.id }}/edit">Edit</a>
+                                    <a href="/accounts/{{ this.id }}/delete">Delete</a>
+                                </td>
+                            </tr>
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
